@@ -63,7 +63,7 @@ func TestTags(t *testing.T) {
 
 func TestComplianceWithInterface(t *testing.T) {
 	var p Person = makePerson("Person")
-	var impl Entitier = &p // because receiver is a pointer and not the value
+	var impl IEntity = &p // because receiver is a pointer and not the value
 	if len(impl.id()) == 0 {
 		t.Fail()
 	}

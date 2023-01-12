@@ -1,6 +1,10 @@
 package entities
 
-type Entitier interface {
+import (
+	"sort"
+)
+
+type IEntity interface {
 	setAttribute(key string, value string)
 	merge(otherValues map[string]string)
 	id() string
@@ -59,5 +63,6 @@ func (p *AbstractEntity) allTags() []string {
 		keys[index] = key
 		index++
 	}
+	sort.Strings(keys)
 	return keys
 }
