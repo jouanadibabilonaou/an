@@ -31,3 +31,11 @@ func (p *Person) attributesLen() int {
 func (p *Person) getAttribute(key string) (value string, ok bool) {
 	return p.entity.getAttribute(key)
 }
+
+func (p *Person) addTag(tag string) {
+	p.entity.addTag(tag)
+}
+
+func (p *Person) allTags() []string {
+	return p.entity.allTags()
+}

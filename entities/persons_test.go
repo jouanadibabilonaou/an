@@ -46,6 +46,21 @@ func TestMergeForPerson(t *testing.T) {
 	}
 }
 
+func TestTags(t *testing.T) {
+	var p Person = makePerson("Gerard")
+	if len(p.allTags()) != 0 {
+		t.Fail()
+	}
+	p.addTag("Personne")
+	var values []string = p.allTags()
+	if len(values) != 1 {
+		t.Fail()
+	}
+	if values[0] != "Personne" {
+		t.Fail()
+	}
+}
+
 func TestComplianceWithInterface(t *testing.T) {
 	var p Person = makePerson("Person")
 	var impl Entitier = &p // because receiver is a pointer and not the value

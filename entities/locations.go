@@ -31,3 +31,11 @@ func (p *Location) attributesLen() int {
 func (p *Location) getAttribute(key string) (value string, ok bool) {
 	return p.entity.getAttribute(key)
 }
+
+func (p *Location) addTag(tag string) {
+	p.entity.addTag(tag)
+}
+
+func (p *Location) allTags() []string {
+	return p.entity.allTags()
+}

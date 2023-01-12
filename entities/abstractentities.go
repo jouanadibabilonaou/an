@@ -13,10 +13,12 @@ type AbstractEntity struct {
 	entityId         string
 	entityName       string
 	entityAttributes map[string]string
+	entityTags       map[string]bool
 }
 
 func makeAbstractEntity(entityName string) AbstractEntity {
-	return AbstractEntity{entityId: generateId(), entityName: entityName, entityAttributes: make(map[string]string)}
+	return AbstractEntity{entityId: generateId(), entityName: entityName,
+		entityAttributes: make(map[string]string), entityTags: make(map[string]bool)}
 }
 
 func (p *AbstractEntity) setAttribute(key string, value string) {
@@ -44,4 +46,18 @@ func (p *AbstractEntity) attributesLen() int {
 func (p *AbstractEntity) getAttribute(key string) (value string, ok bool) {
 	value, ok = p.entityAttributes[key]
 	return value, ok
+}
+
+func (p *AbstractEntity) addTag(tag string) {
+	p.entityTags[tag] = true
+}
+
+func (p *AbstractEntity) allTags() []string {
+	keys := make([]string, len(p.entityTags))
+	var index int = 0
+	for key := range p.entityTags {
+		keys[index] = key
+		index++
+	}
+	return keys
 }
