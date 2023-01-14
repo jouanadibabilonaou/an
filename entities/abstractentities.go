@@ -11,6 +11,9 @@ type IEntity interface {
 	name() string
 	attributesLen() int
 	getAttribute(key string) (value string, ok bool)
+	allAttributesKey() []string
+	addTag(tag string)
+	allTags() []string
 }
 
 type AbstractEntity struct {
@@ -50,6 +53,17 @@ func (p *AbstractEntity) attributesLen() int {
 func (p *AbstractEntity) getAttribute(key string) (value string, ok bool) {
 	value, ok = p.entityAttributes[key]
 	return value, ok
+}
+
+func (p *AbstractEntity) allAttributesKey() []string {
+	var length int = len(p.entityAttributes)
+	var result []string = make([]string, length)
+	var index int = 0
+	for key, _ := range p.entityAttributes {
+		result[index] = key
+		index++
+	}
+	return result
 }
 
 func (p *AbstractEntity) addTag(tag string) {

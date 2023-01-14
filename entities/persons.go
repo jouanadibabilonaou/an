@@ -39,3 +39,7 @@ func (p *Person) addTag(tag string) {
 func (p *Person) allTags() []string {
 	return p.entity.allTags()
 }
+
+func (p *Person) allAttributesKey() []string {
+	return p.entity.allAttributesKey()
+}

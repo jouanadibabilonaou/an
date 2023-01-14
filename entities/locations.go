@@ -39,3 +39,7 @@ func (p *Location) addTag(tag string) {
 func (p *Location) allTags() []string {
 	return p.entity.allTags()
 }
+
+func (p *Location) allAttributesKey() []string {
+	return p.entity.allAttributesKey()
+}
