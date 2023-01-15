@@ -12,8 +12,8 @@ func (p *Person) setAttribute(key string, value string) {
 	p.entity.setAttribute(key, value)
 }
 
-func (p *Person) merge(otherValues map[string]string) {
-	p.entity.merge(otherValues)
+func (p *Person) addAttributes(otherValues map[string]string) {
+	p.entity.addAttributes(otherValues)
 }
 
 func (p *Person) id() string {

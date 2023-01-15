@@ -39,7 +39,7 @@ func TestMergeForPerson(t *testing.T) {
 	p.setAttribute("Nom", "Son nom")
 	var newAttributes map[string]string = make(map[string]string)
 	newAttributes["Prenom"] = "Gerard"
-	p.merge(newAttributes)
+	p.addAttributes(newAttributes)
 	if p.attributesLen() != 2 {
 		t.Fail()
 	}

@@ -12,8 +12,8 @@ func (p *Location) setAttribute(key string, value string) {
 	p.entity.setAttribute(key, value)
 }
 
-func (p *Location) merge(otherValues map[string]string) {
-	p.entity.merge(otherValues)
+func (p *Location) addAttributes(otherValues map[string]string) {
+	p.entity.addAttributes(otherValues)
 }
 
 func (p *Location) id() string {

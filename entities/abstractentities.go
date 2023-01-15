@@ -6,7 +6,7 @@ import (
 
 type IEntity interface {
 	setAttribute(key string, value string)
-	merge(otherValues map[string]string)
+	addAttributes(otherValues map[string]string)
 	id() string
 	name() string
 	attributesLen() int
@@ -35,7 +35,7 @@ func (p *AbstractEntity) setAttribute(key string, value string) {
 	p.entityAttributes[key] = value
 }
 
-func (p *AbstractEntity) merge(otherValues map[string]string) {
+func (p *AbstractEntity) addAttributes(otherValues map[string]string) {
 	if otherValues != nil {
 		if p.entityAttributes == nil {
 			p.entityAttributes = make(map[string]string)
